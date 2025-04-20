@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love!</title>
+    <style>
+        /* Pink Love Theme */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f5;
+            color: #d14d8b;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #d14d8b;
+            border-bottom: 2px dashed #ffb6c1;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .love-letter {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .love-letter:before {
+            content: "❤";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            font-size: 40px;
+            color: #ff69b4;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .photo {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 250px;
+            transition: transform 0.3s;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .photo:hover img {
+            transform: scale(1.1);
+        }
+
+        .heart {
+            color: #ff69b4;
+            font-size: 1.5em;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .memory-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff69b4;
+        }
+
+        .memory-date {
+            font-weight: bold;
+            color: #ff69b4;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart-shape {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 105, 180, 0.5);
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background: #d14d8b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(209, 77, 139, 0.4);
+        }
+
+        .surprise-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        #surpriseMessage {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .couple-name {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.8em;
+            color: #ff1493;
+            margin: 10px 0;
+        }
+
+        /* Confetti styles */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0.8;
+            animation: confetti-fall 5s linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-hearts" id="heartsContainer"></div>
+
+    <div class="container">
+        <header>
+            <h1>Happy Birthday My Love! <span class="heart">❤</span></h1>
+            <p>To the most beautiful person in the world...</p>
+            <div class="couple-name">Us Together</div>
+        </header>
+
+        <div class="love-letter">
+            <h2>My Dearest,</h2>
+            <p>On this special day, I want to take a moment to tell you how incredibly lucky I am to have you in my
+                life. From the moment we met, you've brought nothing but joy, love, and happiness.</p>
+
+            <p>Your smile brightens my darkest days, your laugh is my favorite melody, and your love is the greatest
+                gift I've ever received. Every moment with you feels like a beautiful dream I never want to wake up
+                from.</p>
+
+            <p>You're not just my partner - you're my best friend, my companion in adventure, and my greatest joy. I cherish every memory we've created together.</p>
+
+            <p>On your birthday, I wish you all the happiness, love, and success in the world.</p>
+
+            <p>Forever yours,</p>
+            <p>Your Love <span class="heart">❤</span></p>
+        </div>
+
+        <h2>Our Beautiful Journey Together</h2>
+        <div class="photo-gallery">
+            <div class="photo">
+                <img src="photos/memory1.jpg" alt="Special moment">
+            </div>
+            <div class="photo">
+                <img src="photos/memory2.jpg" alt="Happy times">
+            </div>
+            <div class="photo">
+                <img src="photos/memory3.jpg" alt="Celebration">
+            </div>
+            <div class="photo">
+                <img src="photos/memory4.jpg" alt="Adventure">
+            </div>
+            <div class="photo">
+                <img src="photos/memory5.jpg" alt="Together">
+            </div>
+            <div class="photo">
+                <img src="photos/memory6.jpg" alt="Love">
+            </div>
+        </div>
+
+        <h2>Our Special Moments</h2>
+        <div class="memory-box">
+            <div class="memory-date">The Day We Met</div>
+            <p>I'll never forget the first time I saw you. That moment changed my life forever.</p>
+        </div>
+
+        <div class="memory-box">
+            <div class="memory-date">Our Special Day</div>
+            <p>The most beautiful moment when we became us. I will treasure that memory always.</p>
+        </div>
+
+        <div class="surprise-container">
+            <button class="btn" id="surpriseBtn">Click for Your Special Gift!</button>
+            <div id="surpriseMessage">
+                <h3>My Promise to You</h3>
+                <p>No matter what happens, no matter where life takes us, I promise to always be by your side.</p>
+                <p>I can't wait to celebrate many more birthdays with you.</p>
+                <p class="heart">❤ ❤ ❤</p>
+                <p>Love always,<br>Your Partner</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with <span class="heart">❤</span> with love</p>
+        <p>Happy Birthday! April 21, 2024</p>
+    </footer>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 20;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-shape';
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = 5 + Math.random() * 10 + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = 10 + Math.random() * 20 + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Confetti function
+        function createConfetti() {
+            const colors = ['#ff69b4', '#ff1493', '#ffb6c1', '#d14d8b', '#ffffff'];
+            const confettiCount = 150;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Surprise button
+        document.getElementById('surpriseBtn').addEventListener('click', function () {
+            const message = document.getElementById('surpriseMessage');
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+            } else {
+                message.style.display = 'block';
+                // Create heart explosion
+                for (let i = 0; i < 50; i++) {
+                    createHearts();
+                }
+                // Add confetti
+                createConfetti();
+            }
+        });
+
+        // Initialize the page with confetti
+        window.onload = function () {
+            createHearts();
+            createConfetti();
+
+            // Add more hearts periodically
+            setInterval(() => {
+                const hearts = document.querySelectorAll('.heart-shape');
+                if (hearts.length < 30) {
+                    createHearts();
+                }
+            }, 3000);
+        };
+    </script>
+</body>
+
+</html>
