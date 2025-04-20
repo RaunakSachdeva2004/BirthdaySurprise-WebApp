@@ -1,31 +1,20 @@
-## 🎉 Surprise WebApp
+# Birthday Surprise Webpage 💖🎂
 
-A minimal HTML & CSS-based birthday surprise webpage with a soft aesthetic and a heartfelt photo slideshow – perfect for sharing memories with someone special.
+A beautiful, interactive birthday surprise webpage with photo gallery, love letter, and confetti effects. Perfect for celebrating special occasions with your loved one.
 
+## Features ✨
 
-## 💡 Features
+- **Romantic Design**: Pink-themed with floating hearts
+- **Photo Gallery**: Showcase your favorite memories together
+- **Interactive Elements**:
+  - Confetti explosion animation
+  - Hidden surprise message
+  - Hover effects on photos
+- **Responsive**: Works on all device sizes
+- **Easy to Customize**: Personalize with your own text and photos
 
-- 💖 Elegant, pink-themed design
-- 📸 Personalized photo gallery
-- 📱 Responsive layout for desktop and mobile
-- ✏️ Easy to customize with no coding experience required
+## How to Use 🛠️
 
-
-## 📁 Folder Structure
-Surprise-WebApp/
-├── birthday_surprise.html         # Main webpage file
-└── photos/                        # Folder containing image files
-    ├── photo1.jpg
-    ├── photo2.jpg
-    ├── photo3.jpg
-    ├── photo4.jpg
-    ├── photo5.jpg
-    └── photo6.jpg
-
-
-## 🚀 How to Use
-
-1. **Clone or Download** this repository:
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/Surprise-WebApp.git
-
+   git clone https://github.com/your-username/birthday-surprise.git
